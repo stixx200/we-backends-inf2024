@@ -1,0 +1,38 @@
+interface BaseEntity {
+    id: int;
+    createdAt: Date;
+    updatedAt: Date;
+}
+
+interface User extends BaseEntity {
+    username: string;
+    email: string;
+    passwordHash: string;
+    role: 'admin' | 'user';
+    achievements: UserAchievement[];
+}
+
+interface CalendarEvent extends BaseEntity {
+    title: string;
+    description: string;
+    startDateTime: Date;
+    endDateTime: Date;
+    createdBy: User;
+    invitedUsers: InvitedUser[];
+}
+
+interface InvitedUser {
+    userId: User;
+    status: 'accepted' | 'declined' | 'pending';
+}
+
+interface Achievement extends BaseEntity {
+    name: string;
+    description: string;
+}
+
+interface UserAchievement extends BaseEntity{
+    achievedAt: Date;
+    achievement: Achievement;
+    achieved: boolean;
+}
