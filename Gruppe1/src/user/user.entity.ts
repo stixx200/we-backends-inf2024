@@ -1,6 +1,6 @@
 import { Entity, Column, OneToMany } from 'typeorm';
 import { BaseEntity } from '../shared/base';
-import { TripAccess } from './trip-access.entity';
+import { TripAccess } from '../trip/trip-access.entity';
 
 @Entity()
 export class User extends BaseEntity {
